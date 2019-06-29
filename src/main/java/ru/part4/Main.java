@@ -84,8 +84,8 @@ public class Main {
                                             List partcodeIdParametrs = Arrays.asList(partcode);
                                             part_code_id = query(connection,sqlPartcodesId,partcodeIdParametrs);
 
-                                            String sqlDetails = "INSERT INTO details (name, all_model_id, partcode_id, module_id) SELECT ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM details WHERE name=? AND all_model_id=? AND partcode_id=? AND module_id=?);";
-                                            List detailsParametrs = Arrays.asList(subStr[i], model_id, part_code_id, module_id, subStr[i], model_id, part_code_id, module_id);
+                                            String sqlDetails = "INSERT INTO details (name, all_model_id, partcode_id, module_id) SELECT ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM details WHERE name=? AND all_model_id=? AND partcode_id=?);";
+                                            List detailsParametrs = Arrays.asList(subStr[i], model_id, part_code_id, module_id, subStr[i], model_id, part_code_id);
                                             update(connection,sqlDetails,detailsParametrs);
                                         }
                                     }
